@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
         //We're using placeholders ($1, $2, $3) in the SQL query string to avoid SQL Injection
         //If you want to read more: https://stackoverflow.com/a/8265319
         let params = [email, salted_hash, salt];
-        db.none("INSERT INTO Members (Email, Password, Salt) VALUES ($1, $2, $3)", params)
+        db.none("INSERT INTO MEMBERS(Email, Password, Salt) VALUES ($1, $2, $3)", params)
             .then(() => {
                 //We successfully added the user, let the user know
                 res.send({

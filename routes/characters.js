@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 //This allows parsing of the body of POST requests, that are encoded in JSON
 router.use(bodyParser.json());
 
-router.post("/add", (req, res) => {
+router.post("/", (req, res) => {
     // Parameters for the characters
     let CharacterName = req.body['charactername'];
     let CharacterClass = req.body['characterclass'];
@@ -53,7 +53,7 @@ router.post("/add", (req, res) => {
     }
 });
 
-router.get("/get", (req, res) => {
+router.get("/", (req, res) => {
     let memberId = req.query['memberid'];
     db.manyOrNone('SELECT * FROM characters WHERE memberid=$1', [memberId])
         //If successful, run function passed into .then()
